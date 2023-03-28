@@ -1,0 +1,71 @@
+function BinarioADecimal(num) {
+  // tu codigo aca
+  if(num === 0){
+  	return 0
+  };
+  var a = Array.from(num);
+  var b = a.length - 1;
+  var c = 0;
+  for (var i = 0; i < a.length; i++) {
+  	c = c + a[i] * Math.pow(2,b);
+  	b--
+  };
+  return c;
+
+}
+
+//separar el numero binario en caracteres individuales
+   let array = num.split("");
+//doy vuelta el array
+  array = array.reverse();
+//cada elemento del array multiplicarlo por la base elevada a la potencia
+  let result = 0;
+
+  array.reduce(function(acc, item, i){
+  	let potencia = Math.pow(2,i);
+  	result = result + item * potencia;
+  	return result
+  }, 0);
+
+  for (var i = 0; i < array.length; i++) {
+  	const potencia = Math.pow(2, i);
+  	result = result + array[i] * potencia
+  }
+//
+  return result;
+//
+//
+//
+
+
+function DecimalABinario(num) {
+  // tu codigo aca
+  if(num === 0){
+  	return 0
+  };
+  var dec = [];
+  while(num > 0){
+    let rest = num % 2;
+    dec.unshift(rest);
+    num = Math.floor(num/2);
+  }
+  return dec.join("")
+}
+
+//dividir numero por la base num / 2 => resto => resultado
+let result = [];
+  while(num > 0){
+    result.umshift(num % 2)
+    num = Math.floor(num / 2)
+  }
+
+  return result.join("");
+
+//
+//
+//
+
+module.exports = {
+  BinarioADecimal,
+  DecimalABinario,
+}

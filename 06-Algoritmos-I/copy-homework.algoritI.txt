@@ -1,0 +1,132 @@
+// No cambies los nombres de las funciones.
+// 180 / 2
+// 90 / 2 
+// 45 / 3
+// 15 / 3
+// 5 / 5
+// 1
+
+function factorear(num) {
+  // Factorear el número recibido como parámetro y devolver en un array
+  // los factores por los cuales se va dividiendo a dicho número (De menor a mayor)
+  // Ej: factorear(180) --> [1, 2, 2, 3, 3, 5] Ya que 1x2x2x3x3x5 = 180 y son todos números primos
+  // Tu código:
+  var primeNumber = [1];
+  var divisor = 2;
+
+  while(num !== 1) {
+    if(num % divisor === 0) {
+       primeNumber.push(divisor);
+       num = num / divisor;
+    } else {
+      divisor++;
+    }
+  }
+    return primeNumber;
+};
+
+function bubbleSort(array) {
+  // Implementar el método conocido como bubbleSort 
+  //para ordenar de menor a mayor
+  // el array recibido como parámetro
+  // Devolver el array ordenado resultante
+  // Tu código:
+  var swap = true;
+  while(swap){
+    swap = false;
+    for (var i = 0; i < array.length - 1; i++) {
+      if(array[i] > array[i + 1]){
+
+        [array[i], array[i+1]] = [array[i+1], array[i]];
+
+         // var aux = array[i];
+         // array[i] = array[i + 1];
+         // array[i + 1] = aux;
+         swap = true;
+
+      }
+    }
+  }
+    return array;
+};
+// aux ---> 8
+
+// [1 ,2 ,4 , 8]
+//     i
+// j
+
+function insertionSort(array) {
+  // Implementar el método conocido como insertionSort para ordenar de menor a mayor
+  // el array recibido como parámetro utilizando arreglos
+  // Devolver el array ordenado resultante
+  // Tu código:
+   for (var i = 1; i < array.length; i++) {
+     var j  = i - 1;
+     var aux = array[i];
+     while(j >= 0 && array[j] > aux){
+       array[j + 1] = array[j];
+       j--;
+     }
+     array[j + 1] = aux;
+   }
+   return array;
+} 
+
+
+function selectionSort(array) {
+  // Implementar el método conocido como selectionSort para ordenar de menor a mayor
+  // el array recibido como parámetro utilizando dos arreglos
+  // Devolver el array ordenado resultante
+  // Tu código:
+  for (var i = 0; i < array.length - 1; i++) {
+    let posMin = i;
+    for (var j = i + 1; j < array.length; j++) {
+        if(array[j] < array[posMin]){
+            posMin = j;
+        }
+    }
+    if(i !== posMin) {
+      var aux = array[i];
+      array[i] = array[posMin];
+      array[posMin] = aux;
+    }
+  }
+  return array;
+}
+
+//ejemplo de algotimos de Franco:
+  // function algo(array) {
+  //   var max = array[0]; // 1
+  //   for (var i = 0; i <= array.length; i++) { // n veces
+  //       if(array[i] > max){ // 1
+  //          max = array[i]; // 1
+  //       }
+  //   }
+  //    console.log(max); // 1
+  // }
+  // 1 + N x 2 + 1 = 2 + 2N 
+
+  // O(2N + 2) ---> O(2N) ---> O(N)  // vamos a ir desperciando operaciones en las que sumemoso multilpiquemos valores respecto a N.
+
+
+// for( var i = 0, i <= array.lenght; i++){
+//   for( var j = 0, j <= array.lenght; j++){
+//     if(array[i] === array[j]){
+//     return true;
+//     }
+//   }
+// };
+// O( N x N) = O (n²)
+
+
+
+
+// No modificar nada debajo de esta línea
+// --------------------------------
+
+module.exports = {
+  factorear,
+  bubbleSort,
+  insertionSort,
+  selectionSort,
+};
